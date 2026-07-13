@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Control Center</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-wavz">WAVZ</span>
+      <span class="brand-sub">Pipeline Control</span>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-label">Projects</p>
+      <div id="project-list"></div>
+      <button class="btn-add-project" onclick="openNewProjectModal()">
+        + New project
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="footer-status">
+        <span class="status-dot" id="airflow-status-dot"></span>
+        <span id="airflow-status-text">Checking Airflow...</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-project" id="topbar-project-name">No project selected</span>
+        <span class="topbar-divider">|</span>
+        <span class="topbar-dag" id="topbar-dag-status"></span>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-ghost" onclick="triggerDag()" id="btn-trigger" disabled>▶ Trigger DAG</button>
+        <button class="btn btn-ghost" onclick="runDltManual()" id="btn-run-dlt" disabled>⚡ Run DLT</button>
+        <button class="btn btn-ghost" onclick="runDbtManual()" id="btn-run-dbt" disabled>🔧 Run DBT</button>
+        <button class="btn btn-primary" onclick="deployProject()" id="btn-deploy" disabled>🚀 Deploy</button>
+      </div>
+    </header>
+
+    <!-- TABS -->
+    <nav class="tabs">
+      <button class="tab active" onclick="switchTab('airflow')" id="tab-airflow">
+        <i>⛵</i> Airflow
+      </button>
+      <button class="tab" onclick="switchTab('dlt')" id="tab-dlt">
+        <i>⚡</i> DLT — Delta
+      </button>
+      <button class="tab" onclick="switchTab('dbt')" id="tab-dbt">
+        <i>🔧</i> DBT — Transform
+      </button>
+      <button class="tab" onclick="switchTab('logs')" id="tab-logs">
+        <i>📋</i> Logs
+      </button>
+    </nav>
+
+    <!-- PANELS -->
+    <div class="panels">
+
+      <!-- AIRFLOW PANEL -->
+      <section class="panel active" id="panel-airflow">
+        <div class="panel-body">
+
+          <div class="two-col">
+            <!-- Connection -->
+            <div class="card">
+              <div class="card-title">Source connection</div>
+              <div class="field"><label>Host</label><input id="af-src-host" type="text" placeholder="192.168.1.10"/></div>
+              <div class="field"><label>Port</label><input id="af-src-port" type="text" placeholder="1521"/></div>
+              <div class="field"><label>Service</label><input id="af-src-service" type="text" placeholder="XE"/></div>
+              <div class="field"><label>Schema</label><input id="af-src-schema" type="text" placeholder="DEMO_USER"/></div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Warehouse target</div>
+              <div class="field"><label>Host</label><input id="af-wh-host" type="text" placeholder="192.168.56.104"/></div>
+              <div class="field"><label>Port</label><input id="af-wh-port" type="text" placeholder="5432"/></div>
+              <div class="field"><label>Database</label><input id="af-wh-db" type="text" placeholder="warehouse"/></div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:16px">
+            <div class="card-title">Trigger mechanism</div>
+            <div class="trigger-options" id="trigger-options">
+              <label class="trigger-opt selected" onclick="selectTrigger('sql',this)">
+                <input type="radio" name="trigger" value="sql" checked>
+                <div class="trigger-opt-body">
+                  <div class="trigger-opt-title">SQL sensor</div>
+                  <div class="trigger-opt-desc">Polls a control table. Fires when completion row appears.</div>
+                </div>
+              </label>
+              <label class="trigger-opt" onclick="selectTrigger('file',this)">
+                <input type="radio" name="trigger" value="file">
+                <div class="trigger-opt-body">
+                  <div class="trigger-opt-title">File sensor</div>
+                  <div class="trigger-opt-desc">Watches a folder for a flag file.</div>
+                </div>
+              </label>
+              <label class="trigger-opt" onclick="selectTrigger('schedule',this)">
+                <input type="radio" name="trigger" value="schedule">
+                <div class="trigger-opt-body">
+                  <div class="trigger-opt-title">Scheduled</div>
+                  <div class="trigger-opt-desc">Fixed cron expression.</div>
+                </div>
+              </label>
+              <label class="trigger-opt" onclick="selectTrigger('custom',this)">
+                <input type="radio" name="trigger" value="custom">
+                <div class="trigger-opt-body">
+                  <div class="trigger-opt-title">Custom <span class="badge-code">code</span></div>
+                  <div class="trigger-opt-desc">Write your own Airflow sensor.</div>
+                </div>
+              </label>
+            </div>
+            <div id="trigger-config" style="margin-top:14px"></div>
+          </div>
+
+          <!-- DAG runs -->
+          <div class="card" style="margin-top:16px">
+            <div class="card-title">Recent DAG runs</div>
+            <div id="dag-runs-list"><p class="empty-state">Select a project to see runs.</p></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- DLT PANEL -->
+      <section class="panel" id="panel-dlt">
+        <div class="panel-body">
+          <div class="card">
+            <div class="card-title" style="display:flex;justify-content:space-between;align-items:center">
+              Tables & delta detection
+              <button class="btn btn-ghost btn-sm" onclick="addTable()">+ Add table</button>
+            </div>
+            <p class="hint" style="margin-bottom:12px">
+              <strong>Auto</strong> — inspects the table at runtime, picks timestamp cursor if a timestamp column exists, full hash if it does not.<br>
+              <strong>Timestamp</strong> — forced cursor-based. Specify the column.<br>
+              <strong>Full hash</strong> — forced hash. Reads all rows and compares.
+            </p>
+            <div id="table-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DBT PANEL -->
+      <section class="panel" id="panel-dbt">
+        <div class="panel-body">
+
+          <div class="card" style="margin-bottom:14px">
+            <div class="card-title">Project variables</div>
+            <p class="hint" style="margin-bottom:10px">These are injected into every SQL model via <code>var('key', default)</code>. Change them here without touching SQL.</p>
+            <div id="vars-list"></div>
+            <button class="btn btn-ghost btn-sm" onclick="addVar()" style="margin-top:8px">+ Add variable</button>
+            <button class="btn btn-primary btn-sm" onclick="saveVars()" style="margin-top:8px;margin-left:6px">Save variables</button>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="display:flex;justify-content:space-between;align-items:center">
+              SQL models
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost btn-sm" onclick="addModel()">+ Add model</button>
+                <button class="btn btn-ghost btn-sm" onclick="loadModels()">↺ Refresh</button>
+              </div>
+            </div>
+            <div class="model-tabs" id="model-tabs"></div>
+            <div id="model-editor-wrap">
+              <p class="empty-state">Select a model above to edit its SQL.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- LOGS PANEL -->
+      <section class="panel" id="panel-logs">
+        <div class="panel-body">
+          <div class="card">
+            <div class="card-title" style="display:flex;justify-content:space-between;align-items:center">
+              Output
+              <button class="btn btn-ghost btn-sm" onclick="clearLogs()">Clear</button>
+            </div>
+            <pre id="log-output" class="log-box">Logs will appear here after running DLT, DBT, or deploying.\n</pre>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- panels -->
+  </main>
+</div>
+
+<!-- NEW PROJECT MODAL -->
+<div class="modal-overlay" id="new-project-modal" style="display:none">
+  <div class="modal">
+    <div class="modal-title">New project</div>
+    <div class="field"><label>Project name</label><input id="np-name" type="text" placeholder="e.g. client_b"/></div>
+    <div class="field"><label>Source host</label><input id="np-src-host" type="text" placeholder="oracle_db"/></div>
+    <div class="field"><label>Source port</label><input id="np-src-port" type="text" value="1521"/></div>
+    <div class="field"><label>Service / database</label><input id="np-src-service" type="text" placeholder="XE"/></div>
+    <div class="field"><label>Schema</label><input id="np-src-schema" type="text" placeholder="DEMO_USER"/></div>
+    <div class="field"><label>Warehouse host</label><input id="np-wh-host" type="text" placeholder="192.168.56.104"/></div>
+    <div class="field"><label>Warehouse port</label><input id="np-wh-port" type="text" value="5432"/></div>
+    <div class="field"><label>Warehouse DB</label><input id="np-wh-db" type="text" placeholder="warehouse"/></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="createProject()">Create project</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
