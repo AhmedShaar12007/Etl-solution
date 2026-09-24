@@ -1,0 +1,16 @@
+[pipeline]
+name = "test_pipeline"
+dataset_name = "staging"
+
+[tables]
+
+[source.oracle]
+host = ""
+port = 1521
+service = ""
+schema = ""
+
+[destination.postgres]
+host = ""
+port = 5432
+database = ""

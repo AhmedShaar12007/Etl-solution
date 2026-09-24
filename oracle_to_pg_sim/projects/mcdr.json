@@ -1,0 +1,45 @@
+{
+  "project_name": "mcdr",
+  "source_host": "oracle_db",
+  "source_port": 1521,
+  "source_service": "XE",
+  "source_schema": "DEMO_USER",
+  "warehouse_host": "192.168.56.104",
+  "warehouse_port": 5432,
+  "warehouse_db": "warehouse",
+  "replica_conn_id": "mcdr_oracle_replica",
+  "warehouse_conn_id": "mcdr_warehouse_pg",
+  "trigger": {
+    "trigger_type": "sql",
+    "trigger_sql": "SELECT COUNT(*) FROM load_status\nWHERE status = 'COMPLETE' AND processed = 0",
+    "cleanup_sql": "UPDATE load_status SET processed=1 WHERE status='COMPLETE' AND processed=0",
+    "flag_path": null,
+    "cron_expression": null,
+    "custom_code": null
+  },
+  "tables": [
+    {
+      "name": "orders",
+      "delta": "auto",
+      "cursor": null,
+      "pk": "id",
+      "cursor_candidates": [
+        "updated_at",
+        "created_at"
+      ]
+    },
+    {
+      "name": "customers",
+      "delta": "timestamp",
+      "cursor": "updated_at",
+      "pk": "order_id",
+      "cursor_candidates": [
+        "updated_at",
+        "modified_date",
+        "created_at"
+      ]
+    }
+  ],
+  "dlt_pipeline_path": "/opt/airflow/dlt_pipelines/mcdr",
+  "dbt_project_path": "/opt/airflow/dbt_projects/mcdr"
+}

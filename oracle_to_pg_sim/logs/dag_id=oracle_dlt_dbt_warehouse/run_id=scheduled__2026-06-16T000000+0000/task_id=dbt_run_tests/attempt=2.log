@@ -1,0 +1,83 @@
+{"timestamp":"2026-06-16T08:40:17.926857Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":209}
+{"timestamp":"2026-06-16T08:40:17.931838Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/oracle_dlt_dbt_dag.py","logger":"airflow.dag_processing.dagbag.BundleDagBag","filename":"dagbag.py","lineno":469}
+{"timestamp":"2026-06-16T08:40:33.743910Z","level":"info","event":"\u001b[0m08:40:20  Running with dbt=1.11.11","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.745300Z","level":"info","event":"\u001b[0m08:40:21  Registered adapter: postgres=1.10.0","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.746402Z","level":"info","event":"\u001b[0m08:40:23  [\u001b[33mWARNING\u001b[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.747107Z","level":"info","event":"functionality","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.748028Z","level":"info","event":"Found top-level arguments to test `accepted_values` defined on 'fct_orders' in","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.748790Z","level":"info","event":"package 'oracle_warehouse' (models/marts/schema.yml). Arguments to generic tests","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.750503Z","level":"info","event":"should be nested under the `arguments` property.","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.751364Z","level":"info","event":"\u001b[0m08:40:24  Found 4 models, 15 data tests, 2 sources, 475 macros","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.752373Z","level":"info","event":"\u001b[0m08:40:24","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.753274Z","level":"info","event":"\u001b[0m08:40:24  Concurrency: 4 threads (target='prod')","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.754101Z","level":"info","event":"\u001b[0m08:40:24","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.754983Z","level":"info","event":"\u001b[0m08:40:24  3 of 15 START test not_null_delta_report_load_date ............................. [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.755860Z","level":"info","event":"\u001b[0m08:40:24  1 of 15 START test accepted_values_delta_report_change_type__new_row__updated_row  [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.756675Z","level":"info","event":"\u001b[0m08:40:24  4 of 15 START test not_null_delta_report_order_id .............................. [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.757506Z","level":"info","event":"\u001b[0m08:40:24  2 of 15 START test accepted_values_fct_orders_status__PAID__PENDING__SHIPPED__CANCELLED  [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.758290Z","level":"info","event":"\u001b[0m08:40:25  3 of 15 PASS not_null_delta_report_load_date ................................... [\u001b[32mPASS\u001b[0m in 0.93s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.759197Z","level":"info","event":"\u001b[0m08:40:25  5 of 15 START test not_null_fct_orders_amount .................................. [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.760056Z","level":"info","event":"\u001b[0m08:40:25  1 of 15 PASS accepted_values_delta_report_change_type__new_row__updated_row .... [\u001b[32mPASS\u001b[0m in 0.95s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.761054Z","level":"info","event":"\u001b[0m08:40:25  6 of 15 START test not_null_fct_orders_loaded_at ............................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.763629Z","level":"info","event":"\u001b[0m08:40:25  4 of 15 PASS not_null_delta_report_order_id .................................... [\u001b[32mPASS\u001b[0m in 0.98s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.764546Z","level":"info","event":"\u001b[0m08:40:25  7 of 15 START test not_null_fct_orders_order_id ................................ [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.766667Z","level":"info","event":"\u001b[0m08:40:25  2 of 15 FAIL 1 accepted_values_fct_orders_status__PAID__PENDING__SHIPPED__CANCELLED  [\u001b[31mFAIL 1\u001b[0m in 1.26s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.767682Z","level":"info","event":"\u001b[0m08:40:25  8 of 15 START test source_not_null_staging_customers__dlt_loaded_at ............ [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.768587Z","level":"info","event":"\u001b[0m08:40:26  8 of 15 ERROR source_not_null_staging_customers__dlt_loaded_at ................. [\u001b[31mERROR\u001b[0m in 0.42s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.769558Z","level":"info","event":"\u001b[0m08:40:26  9 of 15 START test source_not_null_staging_customers_customer_id ............... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.770525Z","level":"info","event":"\u001b[0m08:40:26  5 of 15 PASS not_null_fct_orders_amount ........................................ [\u001b[32mPASS\u001b[0m in 0.98s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.771530Z","level":"info","event":"\u001b[0m08:40:26  10 of 15 START test source_not_null_staging_orders__dlt_loaded_at .............. [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.773134Z","level":"info","event":"\u001b[0m08:40:26  9 of 15 PASS source_not_null_staging_customers_customer_id ..................... [\u001b[32mPASS\u001b[0m in 0.29s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.774230Z","level":"info","event":"\u001b[0m08:40:26  7 of 15 PASS not_null_fct_orders_order_id ...................................... [\u001b[32mPASS\u001b[0m in 1.01s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.778343Z","level":"info","event":"\u001b[0m08:40:26  11 of 15 START test source_not_null_staging_orders_order_id .................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.779317Z","level":"info","event":"\u001b[0m08:40:26  12 of 15 START test source_not_null_staging_orders_updated_at .................. [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.780481Z","level":"info","event":"\u001b[0m08:40:26  6 of 15 PASS not_null_fct_orders_loaded_at ..................................... [\u001b[32mPASS\u001b[0m in 1.12s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.781526Z","level":"info","event":"\u001b[0m08:40:26  13 of 15 START test source_unique_staging_customers_customer_id ................ [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.782613Z","level":"info","event":"\u001b[0m08:40:26  10 of 15 ERROR source_not_null_staging_orders__dlt_loaded_at ................... [\u001b[31mERROR\u001b[0m in 0.36s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.783550Z","level":"info","event":"\u001b[0m08:40:26  14 of 15 START test source_unique_staging_orders_order_id ...................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.784254Z","level":"info","event":"\u001b[0m08:40:27  13 of 15 PASS source_unique_staging_customers_customer_id ...................... [\u001b[32mPASS\u001b[0m in 0.35s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.785268Z","level":"info","event":"\u001b[0m08:40:27  15 of 15 START test unique_fct_orders_order_id ................................. [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.786124Z","level":"info","event":"\u001b[0m08:40:27  11 of 15 PASS source_not_null_staging_orders_order_id .......................... [\u001b[32mPASS\u001b[0m in 0.73s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.787635Z","level":"info","event":"\u001b[0m08:40:27  12 of 15 PASS source_not_null_staging_orders_updated_at ........................ [\u001b[32mPASS\u001b[0m in 0.81s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.789076Z","level":"info","event":"\u001b[0m08:40:31  14 of 15 PASS source_unique_staging_orders_order_id ............................ [\u001b[32mPASS\u001b[0m in 4.49s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.790404Z","level":"info","event":"\u001b[0m08:40:31  15 of 15 PASS unique_fct_orders_order_id ....................................... [\u001b[32mPASS\u001b[0m in 4.47s]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.791494Z","level":"info","event":"\u001b[0m08:40:31","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.792321Z","level":"info","event":"\u001b[0m08:40:31  Finished running 15 data tests in 0 hours 0 minutes and 7.57 seconds (7.57s).","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.793036Z","level":"info","event":"\u001b[0m08:40:31","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.794467Z","level":"info","event":"\u001b[0m08:40:31  \u001b[31mCompleted with 3 errors, 0 partial successes, and 0 warnings:\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.795609Z","level":"info","event":"\u001b[0m08:40:31","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.796567Z","level":"info","event":"\u001b[0m08:40:31  \u001b[31mFailure in test accepted_values_fct_orders_status__PAID__PENDING__SHIPPED__CANCELLED (models/marts/schema.yml)\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.798200Z","level":"info","event":"\u001b[0m08:40:31    Got 1 result, configured to fail if != 0","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.799608Z","level":"info","event":"\u001b[0m08:40:31","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.800645Z","level":"info","event":"\u001b[0m08:40:31    compiled code at target/compiled/oracle_warehouse/models/marts/schema.yml/accepted_values_fct_orders_2544bdf8bb81daf1d58957f6bfafe675.sql","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.801676Z","level":"info","event":"\u001b[0m08:40:31","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.802858Z","level":"info","event":"\u001b[0m08:40:31  \u001b[31mFailure in test source_not_null_staging_customers__dlt_loaded_at (models/staging/sources.yml)\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.805145Z","level":"info","event":"\u001b[0m08:40:31    Database Error in test source_not_null_staging_customers__dlt_loaded_at (models/staging/sources.yml)","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.806363Z","level":"info","event":"  column \"_dlt_loaded_at\" does not exist","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.807888Z","level":"info","event":"  LINE 17: select _dlt_loaded_at","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.809416Z","level":"info","event":"                  ^","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.810531Z","level":"info","event":"  compiled code at target/run/oracle_warehouse/models/staging/sources.yml/source_not_null_staging_customers__dlt_loaded_at.sql","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.811841Z","level":"info","event":"\u001b[0m08:40:31","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.813216Z","level":"info","event":"\u001b[0m08:40:32    compiled code at target/compiled/oracle_warehouse/models/staging/sources.yml/source_not_null_staging_customers__dlt_loaded_at.sql","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.814558Z","level":"info","event":"\u001b[0m08:40:32","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.815201Z","level":"info","event":"\u001b[0m08:40:32  \u001b[31mFailure in test source_not_null_staging_orders__dlt_loaded_at (models/staging/sources.yml)\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.816586Z","level":"info","event":"\u001b[0m08:40:32    Database Error in test source_not_null_staging_orders__dlt_loaded_at (models/staging/sources.yml)","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.817735Z","level":"info","event":"  column \"_dlt_loaded_at\" does not exist","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.819015Z","level":"info","event":"  LINE 17: select _dlt_loaded_at","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.820340Z","level":"info","event":"                  ^","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.821575Z","level":"info","event":"  compiled code at target/run/oracle_warehouse/models/staging/sources.yml/source_not_null_staging_orders__dlt_loaded_at.sql","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.823095Z","level":"info","event":"\u001b[0m08:40:32","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.824298Z","level":"info","event":"\u001b[0m08:40:32    compiled code at target/compiled/oracle_warehouse/models/staging/sources.yml/source_not_null_staging_orders__dlt_loaded_at.sql","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.825668Z","level":"info","event":"\u001b[0m08:40:32","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.827416Z","level":"info","event":"\u001b[0m08:40:32  Done. PASS=12 WARN=0 ERROR=3 SKIP=0 NO-OP=0 TOTAL=15","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.828690Z","level":"info","event":"\u001b[0m08:40:32  [\u001b[33mWARNING\u001b[0m][DeprecationsSummary]: Deprecated functionality","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.829972Z","level":"info","event":"Summary of encountered deprecations:","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.831196Z","level":"info","event":"- MissingArgumentsPropertyInGenericTestDeprecation: 2 occurrences","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.832364Z","level":"info","event":"To see all deprecation instances instead of just the first occurrence of each,","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.833610Z","level":"info","event":"run command again with the `--show-all-deprecations` flag. You may also need to","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.834709Z","level":"info","event":"run with `--no-partial-parse` as some deprecations are only encountered during","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.836150Z","level":"info","event":"parsing.","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.837747Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.839007Z","level":"info","event":"[DBT TEST WARNING]","logger":"task.stdout"}
+{"timestamp":"2026-06-16T08:40:33.743869Z","level":"info","event":"Done. Returned value was: {'returncode': 1}","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":229}
+{"timestamp":"2026-06-16T08:40:33.744143Z","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('019ecf92-2c3c-7f9f-b8c4-4ab011fc6a40'), task_id='dbt_run_tests', dag_id='oracle_dlt_dbt_warehouse', run_id='scheduled__2026-06-16T00:00:00+00:00', try_number=2, dag_version_id=UUID('019e4688-5a96-7d7c-8848-7a7d95bb7aea'), map_index=-1, hostname='airflow_webserver', context_carrier={'traceparent': '00-5435d10315fa1cea3356e3d151a9731e-81c05a281e375d5b-01'}, task=<Task(PythonOperator): dbt_run_tests>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=1, start_date=datetime.datetime(2026, 6, 16, 8, 40, 17, 841867, tzinfo=datetime.timezone.utc), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None, sentry_integration='')","logger":"task","filename":"task_runner.py","lineno":1724}

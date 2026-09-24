@@ -1,0 +1,64 @@
+{
+  "project_name": "client_b",
+  "source_host": "oracle_db",
+  "source_port": 1521,
+  "source_service": "XE",
+  "source_schema": "DEMO_USER",
+  "warehouse_host": "192.168.56.104",
+  "warehouse_port": 5432,
+  "warehouse_db": "warehouse",
+  "replica_conn_id": "client_b_oracle_replica",
+  "warehouse_conn_id": "client_b_warehouse_pg",
+  "trigger": {
+    "trigger_type": "sql",
+    "trigger_sql": "SELECT COUNT(*) FROM demo_user.client_b_load_status\nWHERE status = 'COMPLETE' AND processed = 0",
+    "cleanup_sql": "UPDATE demo_user.client_b_load_status SET processed=1 WHERE status='COMPLETE' AND processed=0",
+    "flag_path": null,
+    "cron_expression": null,
+    "custom_code": null
+  },
+  "tables": [
+    {
+      "name": "orders",
+      "delta": "auto",
+      "cursor": null,
+      "pk": "order_id",
+      "cursor_candidates": [
+        "updated_at",
+        "created_at"
+      ]
+    },
+    {
+      "name": "customers",
+      "delta": "auto",
+      "cursor": null,
+      "pk": "customer_id",
+      "cursor_candidates": [
+        "updated_at",
+        "created_at"
+      ]
+    },
+    {
+      "name": "products",
+      "delta": "auto",
+      "cursor": null,
+      "pk": "product_id",
+      "cursor_candidates": [
+        "created_at",
+        "updated_at"
+      ]
+    },
+    {
+      "name": "branches",
+      "delta": "auto",
+      "cursor": null,
+      "pk": "branch_id",
+      "cursor_candidates": [
+        "updated_at",
+        "modified_date"
+      ]
+    }
+  ],
+  "dlt_pipeline_path": "/opt/airflow/dlt_pipelines/client_b",
+  "dbt_project_path": "/opt/airflow/dbt_projects/client_b"
+}

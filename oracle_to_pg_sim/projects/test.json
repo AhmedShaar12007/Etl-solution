@@ -1,0 +1,23 @@
+{
+  "project_name": "test",
+  "source_host": "",
+  "source_port": 1521,
+  "source_service": "",
+  "source_schema": "",
+  "warehouse_host": "",
+  "warehouse_port": 5432,
+  "warehouse_db": "",
+  "replica_conn_id": "test_oracle_replica",
+  "warehouse_conn_id": "test_warehouse_pg",
+  "trigger": {
+    "trigger_type": "custom",
+    "trigger_sql": null,
+    "cleanup_sql": null,
+    "flag_path": null,
+    "cron_expression": null,
+    "custom_code": "from airflow.providers.common.sql.sensors.sql import SqlSensor\n\nwait = SqlSensor(\n    task_id=\"wait_for_row_count_threshold\",\n    conn_id=\"client_b_oracle_replica\",\n    sql=\"\"\"\n        SELECT CASE\n            WHEN COUNT(*) > 5 THEN 1\n            ELSE 0\n        END\n        FROM demo_user.client_b_load_status\n        WHERE processed = 0\n    \"\"\",\n    poke_interval=15,\n    timeout=43200,\n    mode=\"poke\"\n)"
+  },
+  "tables": [],
+  "dlt_pipeline_path": "/opt/airflow/dlt_pipelines/test",
+  "dbt_project_path": "/opt/airflow/dbt_projects/test"
+}

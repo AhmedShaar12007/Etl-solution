@@ -1,0 +1,12 @@
+test_warehouse:
+  outputs:
+    prod:
+      dbname: ''
+      host: ''
+      password: dlt_pass
+      port: 5432
+      schema: marts
+      threads: 4
+      type: postgres
+      user: dlt_user
+  target: prod

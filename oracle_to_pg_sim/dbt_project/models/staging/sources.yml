@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: staging
+    description: "Raw tables loaded by DLT from Oracle. Schema written by DLT."
+    schema: staging
+    tables:
+
+      - name: orders
+        description: "Raw Oracle orders table. Every row has _dlt_id and _dlt_loaded_at added by DLT."
+        columns:
+          - name: order_id
+            description: "Oracle primary key"
+            tests: [not_null, unique]
+          - name: updated_at
+            description: "DLT cursor column. DLT uses this to pull only changed rows."
+            tests: [not_null]
+          - name: _dlt_loaded_at
+            description: "Timestamp DLT stamped when this row was loaded. DBT uses this for delta filtering."
+            tests: [not_null]
+          - name: _dlt_id
+            description: "DLT row hash — unique identifier for deduplication."
+
+      - name: customers
+        description: "Raw Oracle customers. Append-only: new customers only each run."
+        columns:
+          - name: customer_id
+            tests: [not_null, unique]
+          - name: _dlt_loaded_at
+            tests: [not_null]

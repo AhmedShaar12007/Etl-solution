@@ -1,0 +1,34 @@
+{"timestamp":"2026-05-20T18:08:41.988225Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":209}
+{"timestamp":"2026-05-20T18:08:41.990977Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/oracle_dlt_dbt_dag.py","logger":"airflow.dag_processing.dagbag.BundleDagBag","filename":"dagbag.py","lineno":469}
+{"timestamp":"2026-05-20T18:08:42.353366Z","level":"info","event":"[DBT] Running: dbt run --project-dir /opt/airflow/dbt_project --profiles-dir /opt/airflow/dbt_project --select staging --no-version-check --no-partial-parse","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.799452Z","level":"info","event":"\u001b[0m18:08:43  Running with dbt=1.11.11","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.800535Z","level":"info","event":"\u001b[0m18:08:44  Registered adapter: postgres=1.10.0","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.801529Z","level":"info","event":"\u001b[0m18:08:45  [\u001b[33mWARNING\u001b[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.801907Z","level":"info","event":"functionality","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.802261Z","level":"info","event":"Found top-level arguments to test `accepted_values` defined on 'fct_orders' in","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.802869Z","level":"info","event":"package 'oracle_warehouse' (models/marts/schema.yml). Arguments to generic tests","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.803321Z","level":"info","event":"should be nested under the `arguments` property.","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.803645Z","level":"info","event":"\u001b[0m18:08:45  Found 4 models, 15 data tests, 2 sources, 475 macros","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.804070Z","level":"info","event":"\u001b[0m18:08:45","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.804635Z","level":"info","event":"\u001b[0m18:08:45  Concurrency: 4 threads (target='prod')","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.804983Z","level":"info","event":"\u001b[0m18:08:45","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.805384Z","level":"info","event":"\u001b[0m18:08:45  1 of 2 START sql view model marts_marts.stg_customers .......................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.805912Z","level":"info","event":"\u001b[0m18:08:45  2 of 2 START sql view model marts_marts.stg_orders ............................. [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.806258Z","level":"info","event":"\u001b[0m18:08:46  1 of 2 OK created sql view model marts_marts.stg_customers ..................... [\u001b[32mCREATE VIEW\u001b[0m in 0.31s]","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.806806Z","level":"info","event":"\u001b[0m18:08:46  2 of 2 OK created sql view model marts_marts.stg_orders ........................ [\u001b[32mCREATE VIEW\u001b[0m in 0.32s]","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.807155Z","level":"info","event":"\u001b[0m18:08:46","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.807491Z","level":"info","event":"\u001b[0m18:08:46  Finished running 2 view models in 0 hours 0 minutes and 0.71 seconds (0.71s).","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.808024Z","level":"info","event":"\u001b[0m18:08:46","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.808424Z","level":"info","event":"\u001b[0m18:08:46  \u001b[32mCompleted successfully\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.808945Z","level":"info","event":"\u001b[0m18:08:46","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.809421Z","level":"info","event":"\u001b[0m18:08:46  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.809992Z","level":"info","event":"\u001b[0m18:08:46  [\u001b[33mWARNING\u001b[0m][DeprecationsSummary]: Deprecated functionality","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.810758Z","level":"info","event":"Summary of encountered deprecations:","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.811202Z","level":"info","event":"- MissingArgumentsPropertyInGenericTestDeprecation: 2 occurrences","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.811632Z","level":"info","event":"To see all deprecation instances instead of just the first occurrence of each,","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.811944Z","level":"info","event":"run command again with the `--show-all-deprecations` flag. You may also need to","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.812426Z","level":"info","event":"run with `--no-partial-parse` as some deprecations are only encountered during","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.812776Z","level":"info","event":"parsing.","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.813217Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-05-20T18:08:47.798890Z","level":"info","event":"Done. Returned value was: {'selector': 'staging', 'returncode': 0}","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":229}
+{"timestamp":"2026-05-20T18:08:47.799194Z","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('019e4693-2ff7-7218-8b22-7e6177892388'), task_id='dbt_build_staging_views', dag_id='oracle_dlt_dbt_warehouse', run_id='manual__2026-05-20T18:08:31.716429+00:00', try_number=1, dag_version_id=UUID('019e4688-5a96-7d7c-8848-7a7d95bb7aea'), map_index=-1, hostname='airflow_webserver', context_carrier={'traceparent': '00-d1607ec667ae60a11aa5e163d28492d1-a1c661486f477d87-01'}, task=<Task(PythonOperator): dbt_build_staging_views>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=0, start_date=datetime.datetime(2026, 5, 20, 18, 8, 41, 951842, tzinfo=datetime.timezone.utc), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None, sentry_integration='')","logger":"task","filename":"task_runner.py","lineno":1724}

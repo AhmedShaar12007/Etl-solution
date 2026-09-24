@@ -1,0 +1,16 @@
+[0m10:56:22.646406 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7536352b8ec0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7536341cbc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7536341cbb10>]}
+
+
+============================== 10:56:22.658913 | 74cd2330-f69d-4179-8921-c746cd67d153 ==============================
+[0m10:56:22.658913 [info ] [MainThread]: Running with dbt=1.11.12
+[0m10:56:22.662628 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'no_print': 'None', 'use_colors': 'True', 'partial_parse': 'False', 'introspect': 'True', 'profiles_dir': '/opt/airflow/dbt_projects/client_b', 'static_parser': 'True', 'use_experimental_parser': 'False', 'log_format': 'default', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --profiles-dir /opt/airflow/dbt_projects/client_b --project-dir /opt/airflow/dbt_projects/client_b --no-partial-parse --no-version-check', 'quiet': 'False', 'warn_error': 'None', 'empty': 'False', 'version_check': 'False', 'fail_fast': 'False', 'write_json': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'log_path': 'logs'}
+[0m10:56:22.672308 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /opt/airflow/dbt_projects/client_b/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m10:56:22.676947 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.28573748, "process_in_blocks": "1168", "process_kernel_time": 0.503702, "process_mem_max_rss": "117704", "process_out_blocks": "32", "process_user_time": 2.345238}
+[0m10:56:22.679791 [debug] [MainThread]: Command `dbt run` failed at 10:56:22.679258 after 0.29 seconds
+[0m10:56:22.682708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75363404a060>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7536341da450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7536341f3bd0>]}
+[0m10:56:22.684474 [debug] [MainThread]: Flushing usage events
+[0m10:56:24.068369 [debug] [MainThread]: An error was encountered while trying to flush usage events

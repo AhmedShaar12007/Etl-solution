@@ -1,0 +1,9 @@
+sources:
+- name: staging
+  schema: staging
+  tables:
+  - name: orders
+  - name: customers
+  - name: products
+  - name: branches
+version: 2

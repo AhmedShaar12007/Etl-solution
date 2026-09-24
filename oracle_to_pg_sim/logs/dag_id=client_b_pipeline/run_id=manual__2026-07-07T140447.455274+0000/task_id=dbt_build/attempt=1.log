@@ -1,0 +1,45 @@
+{"timestamp":"2026-07-07T14:04:59.660963Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":209}
+{"timestamp":"2026-07-07T14:04:59.662777Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/factory.py","logger":"airflow.dag_processing.dagbag.BundleDagBag","filename":"dagbag.py","lineno":469}
+{"timestamp":"2026-07-07T14:04:59.732477Z","level":"warning","event":"The `airflow.decorators.dag` attribute is deprecated. Please use `'airflow.sdk.dag'`.","category":"UserWarning","filename":"/opt/airflow/dags/factory.py","lineno":4,"logger":"py.warnings"}
+{"timestamp":"2026-07-07T14:05:21.088564Z","level":"info","event":"\u001b[0m14:05:01  Running with dbt=1.11.12","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.089409Z","level":"info","event":"\u001b[0m14:05:01  Registered adapter: postgres=1.10.2","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.089780Z","level":"info","event":"\u001b[0m14:05:02  Found 5 models, 4 sources, 475 macros","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.090045Z","level":"info","event":"\u001b[0m14:05:02","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.090302Z","level":"info","event":"\u001b[0m14:05:02  Concurrency: 4 threads (target='prod')","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.090553Z","level":"info","event":"\u001b[0m14:05:02","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.090804Z","level":"info","event":"\u001b[0m14:05:03  1 of 5 START sql view model marts_staging.stg_branches ......................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.091152Z","level":"info","event":"\u001b[0m14:05:03  3 of 5 START sql view model marts_staging.stg_orders ........................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.091481Z","level":"info","event":"\u001b[0m14:05:03  4 of 5 START sql view model marts_staging.stg_products ......................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.091830Z","level":"info","event":"\u001b[0m14:05:03  2 of 5 START sql view model marts_staging.stg_customers ........................ [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.092222Z","level":"info","event":"\u001b[0m14:05:03  4 of 5 ERROR creating sql view model marts_staging.stg_products ................ [\u001b[31mERROR\u001b[0m in 0.25s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.092533Z","level":"info","event":"\u001b[0m14:05:03  1 of 5 ERROR creating sql view model marts_staging.stg_branches ................ [\u001b[31mERROR\u001b[0m in 0.25s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.092734Z","level":"info","event":"\u001b[0m14:05:04  3 of 5 OK created sql view model marts_staging.stg_orders ...................... [\u001b[32mCREATE VIEW\u001b[0m in 0.42s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.093021Z","level":"info","event":"\u001b[0m14:05:04  2 of 5 OK created sql view model marts_staging.stg_customers ................... [\u001b[32mCREATE VIEW\u001b[0m in 0.42s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.093278Z","level":"info","event":"\u001b[0m14:05:04  5 of 5 START sql incremental model marts_marts.fct_client_b .................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.093590Z","level":"info","event":"\u001b[0m14:05:19  5 of 5 OK created sql incremental model marts_marts.fct_client_b ............... [\u001b[32mSELECT 2000010\u001b[0m in 15.42s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.093943Z","level":"info","event":"\u001b[0m14:05:19","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.094238Z","level":"info","event":"\u001b[0m14:05:19  Finished running 1 incremental model, 4 view models in 0 hours 0 minutes and 16.64 seconds (16.64s).","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.094660Z","level":"info","event":"\u001b[0m14:05:19","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.094981Z","level":"info","event":"\u001b[0m14:05:19  \u001b[31mCompleted with 2 errors, 0 partial successes, and 0 warnings:\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.095423Z","level":"info","event":"\u001b[0m14:05:19","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.095807Z","level":"info","event":"\u001b[0m14:05:19  \u001b[31mFailure in model stg_products (models/staging/stg_products.sql)\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.096303Z","level":"info","event":"\u001b[0m14:05:19    Database Error in model stg_products (models/staging/stg_products.sql)","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.096657Z","level":"info","event":"  cannot cast type numeric to boolean","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.097009Z","level":"info","event":"  LINE 15:     is_active::BOOLEAN","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.097310Z","level":"info","event":"                        ^","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.097565Z","level":"info","event":"  compiled code at target/run/client_b_warehouse/models/staging/stg_products.sql","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.098010Z","level":"info","event":"\u001b[0m14:05:19","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.098294Z","level":"info","event":"\u001b[0m14:05:19    compiled code at target/compiled/client_b_warehouse/models/staging/stg_products.sql","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.098652Z","level":"info","event":"\u001b[0m14:05:19","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.098997Z","level":"info","event":"\u001b[0m14:05:19  \u001b[31mFailure in model stg_branches (models/staging/stg_branches.sql)\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.099414Z","level":"info","event":"\u001b[0m14:05:19    Database Error in model stg_branches (models/staging/stg_branches.sql)","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.099727Z","level":"info","event":"  cannot cast type numeric to boolean","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.100071Z","level":"info","event":"  LINE 14:     is_open::BOOLEAN","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.100359Z","level":"info","event":"                      ^","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.100635Z","level":"info","event":"  compiled code at target/run/client_b_warehouse/models/staging/stg_branches.sql","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.100920Z","level":"info","event":"\u001b[0m14:05:19","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.101142Z","level":"info","event":"\u001b[0m14:05:19    compiled code at target/compiled/client_b_warehouse/models/staging/stg_branches.sql","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.101416Z","level":"info","event":"\u001b[0m14:05:19","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.101630Z","level":"info","event":"\u001b[0m14:05:19  Done. PASS=3 WARN=0 ERROR=2 SKIP=0 NO-OP=0 TOTAL=5","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.101818Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:05:21.088545Z","level":"error","event":"Task failed with exception","logger":"task","filename":"task_runner.py","lineno":1347,"error_detail":[{"exc_type":"Exception","exc_value":"DBT failed: ","exc_notes":[],"syntax_error":null,"is_cause":false,"frames":[{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/execution_time/task_runner.py","lineno":1263,"name":"run"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/execution_time/task_runner.py","lineno":1678,"name":"_execute_task"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/bases/operator.py","lineno":443,"name":"wrapper"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/providers/standard/operators/python.py","lineno":227,"name":"execute"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/providers/standard/operators/python.py","lineno":250,"name":"execute_callable"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/execution_time/callback_runner.py","lineno":97,"name":"run"},{"filename":"/opt/airflow/dags/factory.py","lineno":100,"name":"run_dbt"}],"is_group":false,"exceptions":[]}]}

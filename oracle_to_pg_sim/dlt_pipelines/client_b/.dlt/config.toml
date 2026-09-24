@@ -1,0 +1,38 @@
+[pipeline]
+name = "client_b_pipeline"
+dataset_name = "staging"
+
+[source.oracle]
+host = "oracle_db"
+port = 1521
+service = "XE"
+schema = "DEMO_USER"
+
+[destination.postgres]
+host = "192.168.56.104"
+port = 5432
+database = "warehouse"
+
+[tables.orders]
+delta = "auto"
+cursor = ""
+primary_key = "order_id"
+cursor_candidates = [ "updated_at", "created_at",]
+
+[tables.customers]
+delta = "auto"
+cursor = ""
+primary_key = "customer_id"
+cursor_candidates = [ "updated_at", "created_at",]
+
+[tables.products]
+delta = "auto"
+cursor = ""
+primary_key = "product_id"
+cursor_candidates = [ "created_at", "updated_at",]
+
+[tables.branches]
+delta = "auto"
+cursor = ""
+primary_key = "branch_id"
+cursor_candidates = [ "updated_at", "modified_date",]

@@ -1,0 +1,25 @@
+name: oracle_warehouse
+version: "1.0.0"
+config-version: 2
+
+profile: oracle_warehouse
+
+model-paths:  ["models"]
+macro-paths:  ["macros"]
+test-paths:   ["tests"]
+seed-paths:   ["seeds"]
+
+target-path:  "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  oracle_warehouse:
+
+    staging:
+      +materialized: view          # staging = lightweight views over raw DLT tables
+      +schema: marts               # written into the `marts` schema in the warehouse
+
+    marts:
+      +materialized: incremental   # marts = incremental tables (delta only on each run)
+      +schema: marts
+      +on_schema_change: sync_all_columns

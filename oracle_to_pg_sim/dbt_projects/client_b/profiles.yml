@@ -1,0 +1,12 @@
+client_b_warehouse:
+  outputs:
+    prod:
+      dbname: warehouse
+      host: 192.168.56.104
+      password: dlt_pass
+      port: 5432
+      schema: marts
+      threads: 4
+      type: postgres
+      user: dlt_user
+  target: prod

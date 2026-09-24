@@ -1,0 +1,33 @@
+version: 2
+
+models:
+
+  - name: fct_orders
+    description: >
+      Incremental fact table. On each pipeline run only the rows DLT loaded
+      since the last run are processed and merged in (delta loading).
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['PAID', 'PENDING', 'SHIPPED', 'CANCELLED']
+      - name: amount
+        tests: [not_null]
+      - name: loaded_at
+        tests: [not_null]
+
+  - name: delta_report
+    description: >
+      Append-only audit table. One row per changed order per day.
+      Query this to see exactly what changed in each pipeline run.
+    columns:
+      - name: order_id
+        tests: [not_null]
+      - name: change_type
+        tests:
+          - accepted_values:
+              values: ['new_row', 'updated_row']
+      - name: load_date
+        tests: [not_null]

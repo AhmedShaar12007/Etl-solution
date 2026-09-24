@@ -1,0 +1,26 @@
+[pipeline]
+name = "mcdr_pipeline"
+dataset_name = "staging"
+
+[source.oracle]
+host = "oracle_db"
+port = 1521
+service = "XE"
+schema = "DEMO_USER"
+
+[destination.postgres]
+host = "192.168.56.104"
+port = 5432
+database = "warehouse"
+
+[tables.orders]
+delta = "auto"
+cursor = ""
+primary_key = "id"
+cursor_candidates = [ "updated_at", "created_at",]
+
+[tables.customers]
+delta = "timestamp"
+cursor = "updated_at"
+primary_key = "order_id"
+cursor_candidates = [ "updated_at", "modified_date", "created_at",]

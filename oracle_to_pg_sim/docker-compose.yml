@@ -1,0 +1,73 @@
+services:
+  oracle:
+    image: gvenzl/oracle-xe:18.4.0-slim
+    container_name: oracle_db
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=YourPassword123
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - shared_transfer:/opt/oracle/snapshots
+
+  postgres_dw:
+    image: postgres:latest
+    container_name: pg_warehouse
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=warehouse_pass
+      - POSTGRES_DB=warehouse
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql
+      - shared_transfer:/var/lib/postgresql/snapshots
+
+  airflow-standalone:
+    build: .
+    container_name: airflow_webserver
+    hostname: airflow_webserver
+    command: standalone
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:warehouse_pass@postgres_dw/warehouse
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLt0nFy4pE=
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my_secret_key_for_demo_2026
+      - _AIRFLOW_WWW_USER_CREATE=true
+      - _AIRFLOW_WWW_USER_USERNAME=admin
+      - _AIRFLOW_WWW_USER_PASSWORD=admin
+      - _AIRFLOW_WWW_USER_EMAIL=admin@example.com
+      - _AIRFLOW_WWW_USER_ROLE=Admin
+      - ORACLE_USER=demo_user
+      - ORACLE_PASS=DemoPass123
+      - ORACLE_HOST=oracle_db
+      - ORACLE_PORT=1521
+      - ORACLE_SERVICE=XE
+      - WAREHOUSE_PG_URL=postgresql://dlt_user:dlt_pass@192.168.56.104:5432/warehouse
+      - WAREHOUSE_PG_HOST=192.168.56.104
+      - WAREHOUSE_PG_PORT=5432
+      - WAREHOUSE_PG_DB=warehouse
+      - WAREHOUSE_PG_USER=dlt_user
+      - WAREHOUSE_PG_PASS=dlt_pass
+      - AIRFLOW_CONN_CLIENT_B_WAREHOUSE_PG=postgresql://dlt_user:dlt_pass@192.168.56.104:5432/warehouse
+      - AIRFLOW_CONN_MCDR_WAREHOUSE_PG=postgresql://dlt_user:dlt_pass@192.168.56.104:5432/warehouse
+      - AIRFLOW_CONN_FS_DEFAULT=fs://
+    depends_on:
+      - postgres_dw
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./snapshots:/mnt/snapshots
+      - ./dlt_pipelines:/opt/airflow/dlt_pipelines
+      - ./dbt_project:/opt/airflow/dbt_project
+      - ./projects:/opt/airflow/projects
+      - ./dbt_projects:/opt/airflow/dbt_projects
+
+volumes:
+  pg_data:
+  oracle_data:
+  shared_transfer:

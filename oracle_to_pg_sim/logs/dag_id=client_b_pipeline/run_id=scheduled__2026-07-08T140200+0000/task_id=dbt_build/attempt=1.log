@@ -1,0 +1,27 @@
+{"timestamp":"2026-07-08T14:04:49.544441Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":209}
+{"timestamp":"2026-07-08T14:04:49.547638Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/factory.py","logger":"airflow.dag_processing.dagbag.BundleDagBag","filename":"dagbag.py","lineno":469}
+{"timestamp":"2026-07-08T14:04:49.619697Z","level":"warning","event":"The `airflow.decorators.dag` attribute is deprecated. Please use `'airflow.sdk.dag'`.","category":"UserWarning","filename":"/opt/airflow/dags/factory.py","lineno":4,"logger":"py.warnings"}
+{"timestamp":"2026-07-08T14:05:11.409854Z","level":"info","event":"\u001b[0m14:04:51  Running with dbt=1.11.12","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.410718Z","level":"info","event":"\u001b[0m14:04:51  Registered adapter: postgres=1.10.2","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.411616Z","level":"info","event":"\u001b[0m14:04:52  Found 5 models, 4 sources, 475 macros","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.412173Z","level":"info","event":"\u001b[0m14:04:52","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.412598Z","level":"info","event":"\u001b[0m14:04:52  Concurrency: 4 threads (target='prod')","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.413053Z","level":"info","event":"\u001b[0m14:04:52","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.413525Z","level":"info","event":"\u001b[0m14:04:53  1 of 5 START sql view model marts_staging.stg_branches ......................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.414154Z","level":"info","event":"\u001b[0m14:04:53  4 of 5 START sql view model marts_staging.stg_products ......................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.414621Z","level":"info","event":"\u001b[0m14:04:53  2 of 5 START sql view model marts_staging.stg_customers ........................ [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.415147Z","level":"info","event":"\u001b[0m14:04:53  3 of 5 START sql view model marts_staging.stg_orders ........................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.415802Z","level":"info","event":"\u001b[0m14:04:53  4 of 5 OK created sql view model marts_staging.stg_products .................... [\u001b[32mCREATE VIEW\u001b[0m in 0.45s]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.416740Z","level":"info","event":"\u001b[0m14:04:53  2 of 5 OK created sql view model marts_staging.stg_customers ................... [\u001b[32mCREATE VIEW\u001b[0m in 0.47s]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.417964Z","level":"info","event":"\u001b[0m14:04:53  1 of 5 OK created sql view model marts_staging.stg_branches .................... [\u001b[32mCREATE VIEW\u001b[0m in 0.47s]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.418994Z","level":"info","event":"\u001b[0m14:04:53  3 of 5 OK created sql view model marts_staging.stg_orders ...................... [\u001b[32mCREATE VIEW\u001b[0m in 0.47s]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.419693Z","level":"info","event":"\u001b[0m14:04:53  5 of 5 START sql incremental model marts_marts.fct_client_b .................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.420370Z","level":"info","event":"\u001b[0m14:05:09  5 of 5 OK created sql incremental model marts_marts.fct_client_b ............... [\u001b[32mINSERT 0 3\u001b[0m in 16.10s]","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.421090Z","level":"info","event":"\u001b[0m14:05:09","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.421750Z","level":"info","event":"\u001b[0m14:05:09  Finished running 1 incremental model, 4 view models in 0 hours 0 minutes and 17.07 seconds (17.07s).","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.422394Z","level":"info","event":"\u001b[0m14:05:09","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.422821Z","level":"info","event":"\u001b[0m14:05:09  \u001b[32mCompleted successfully\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.423586Z","level":"info","event":"\u001b[0m14:05:09","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.424120Z","level":"info","event":"\u001b[0m14:05:09  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=5","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.424466Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-07-08T14:05:11.409857Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":229}

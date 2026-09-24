@@ -1,0 +1,14 @@
+{"timestamp":"2026-07-07T14:10:46.885575Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":209}
+{"timestamp":"2026-07-07T14:10:46.887888Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/factory.py","logger":"airflow.dag_processing.dagbag.BundleDagBag","filename":"dagbag.py","lineno":469}
+{"timestamp":"2026-07-07T14:10:46.959325Z","level":"warning","event":"The `airflow.decorators.dag` attribute is deprecated. Please use `'airflow.sdk.dag'`.","category":"UserWarning","filename":"/opt/airflow/dags/factory.py","lineno":4,"logger":"py.warnings"}
+{"timestamp":"2026-07-07T14:10:47.391191Z","level":"warning","event":"Using Variable.get from `airflow.models` is deprecated.Please use `get` on Variable from sdk(`airflow.sdk.Variable`) instead","category":"DeprecationWarning","filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/models/variable.py","lineno":158,"logger":"py.warnings"}
+{"timestamp":"2026-07-07T14:10:47.400047Z","level":"warning","event":"The `airflow.operators.python.get_current_context` attribute is deprecated. Please use `'airflow.sdk.get_current_context'`.","category":"DeprecatedImportWarning","filename":"/home/airflow/.local/lib/python3.13/site-packages/dlt/common/configuration/specs/config_providers_context.py","lineno":145,"logger":"py.warnings"}
+{"timestamp":"2026-07-07T14:10:48.584133Z","level":"info","event":"[orders] auto -> timestamp on updated_at","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:48.892947Z","level":"info","event":"[customers] auto -> timestamp on updated_at","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:49.207365Z","level":"info","event":"[products] auto -> full hash","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:49.467410Z","level":"info","event":"[branches] auto -> full hash","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:54.124958Z","level":"info","event":"Pipeline client_b_pipeline load step completed in 0.61 seconds","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:54.125830Z","level":"info","event":"1 load package(s) were loaded to destination postgres and into dataset staging","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:54.126303Z","level":"info","event":"The postgres destination used postgresql://dlt_user:***@192.168.56.104:5432/warehouse location to store data","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:54.126783Z","level":"info","event":"Load package 1783433451.6556716 is LOADED and contains no failed jobs","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:10:54.124979Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":229}

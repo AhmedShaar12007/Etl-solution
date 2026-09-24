@@ -1,0 +1,36 @@
+{"timestamp":"2026-07-07T14:08:58.581485Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":209}
+{"timestamp":"2026-07-07T14:08:58.583566Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/factory.py","logger":"airflow.dag_processing.dagbag.BundleDagBag","filename":"dagbag.py","lineno":469}
+{"timestamp":"2026-07-07T14:08:58.650384Z","level":"warning","event":"The `airflow.decorators.dag` attribute is deprecated. Please use `'airflow.sdk.dag'`.","category":"UserWarning","filename":"/opt/airflow/dags/factory.py","lineno":4,"logger":"py.warnings"}
+{"timestamp":"2026-07-07T14:09:05.217939Z","level":"info","event":"\u001b[0m14:09:00  Running with dbt=1.11.12","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.220100Z","level":"info","event":"\u001b[0m14:09:00  Registered adapter: postgres=1.10.2","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.221217Z","level":"info","event":"\u001b[0m14:09:01  Found 5 models, 4 sources, 475 macros","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.222250Z","level":"info","event":"\u001b[0m14:09:01","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.223039Z","level":"info","event":"\u001b[0m14:09:01  Concurrency: 4 threads (target='prod')","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.223941Z","level":"info","event":"\u001b[0m14:09:01","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.225216Z","level":"info","event":"\u001b[0m14:09:01  1 of 5 START sql view model marts_staging.stg_branches ......................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.226175Z","level":"info","event":"\u001b[0m14:09:01  3 of 5 START sql view model marts_staging.stg_orders ........................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.227210Z","level":"info","event":"\u001b[0m14:09:01  4 of 5 START sql view model marts_staging.stg_products ......................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.228046Z","level":"info","event":"\u001b[0m14:09:01  2 of 5 START sql view model marts_staging.stg_customers ........................ [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.229362Z","level":"info","event":"\u001b[0m14:09:02  1 of 5 OK created sql view model marts_staging.stg_branches .................... [\u001b[32mCREATE VIEW\u001b[0m in 0.26s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.230222Z","level":"info","event":"\u001b[0m14:09:02  4 of 5 OK created sql view model marts_staging.stg_products .................... [\u001b[32mCREATE VIEW\u001b[0m in 0.27s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.230892Z","level":"info","event":"\u001b[0m14:09:02  2 of 5 OK created sql view model marts_staging.stg_customers ................... [\u001b[32mCREATE VIEW\u001b[0m in 0.31s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.231702Z","level":"info","event":"\u001b[0m14:09:02  3 of 5 OK created sql view model marts_staging.stg_orders ...................... [\u001b[32mCREATE VIEW\u001b[0m in 0.32s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.232235Z","level":"info","event":"\u001b[0m14:09:02  5 of 5 START sql incremental model marts_marts.fct_client_b .................... [RUN]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.232744Z","level":"info","event":"\u001b[0m14:09:03  5 of 5 ERROR creating sql incremental model marts_marts.fct_client_b ........... [\u001b[31mERROR\u001b[0m in 1.50s]","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.233374Z","level":"info","event":"\u001b[0m14:09:03","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.233995Z","level":"info","event":"\u001b[0m14:09:03  Finished running 1 incremental model, 4 view models in 0 hours 0 minutes and 2.17 seconds (2.17s).","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.234604Z","level":"info","event":"\u001b[0m14:09:03","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.235429Z","level":"info","event":"\u001b[0m14:09:03  \u001b[31mCompleted with 1 error, 0 partial successes, and 0 warnings:\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.236237Z","level":"info","event":"\u001b[0m14:09:03","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.236899Z","level":"info","event":"\u001b[0m14:09:03  \u001b[31mFailure in model fct_client_b (models/marts/fct_client_b.sql)\u001b[0m","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.237546Z","level":"info","event":"\u001b[0m14:09:03    Database Error in model fct_client_b (models/marts/fct_client_b.sql)","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.238288Z","level":"info","event":"  column \"id\" does not exist","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.238972Z","level":"info","event":"  LINE 8:             select distinct id","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.239673Z","level":"info","event":"                                      ^","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.240203Z","level":"info","event":"  compiled code at target/run/client_b_warehouse/models/marts/fct_client_b.sql","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.241482Z","level":"info","event":"\u001b[0m14:09:03","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.242200Z","level":"info","event":"\u001b[0m14:09:03    compiled code at target/compiled/client_b_warehouse/models/marts/fct_client_b.sql","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.243099Z","level":"info","event":"\u001b[0m14:09:03","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.243881Z","level":"info","event":"\u001b[0m14:09:03  Done. PASS=4 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=5","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.244642Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-07-07T14:09:05.217866Z","level":"error","event":"Task failed with exception","logger":"task","filename":"task_runner.py","lineno":1347,"error_detail":[{"exc_type":"Exception","exc_value":"DBT failed: ","exc_notes":[],"syntax_error":null,"is_cause":false,"frames":[{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/execution_time/task_runner.py","lineno":1263,"name":"run"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/execution_time/task_runner.py","lineno":1678,"name":"_execute_task"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/bases/operator.py","lineno":443,"name":"wrapper"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/providers/standard/operators/python.py","lineno":227,"name":"execute"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/providers/standard/operators/python.py","lineno":250,"name":"execute_callable"},{"filename":"/home/airflow/.local/lib/python3.13/site-packages/airflow/sdk/execution_time/callback_runner.py","lineno":97,"name":"run"},{"filename":"/opt/airflow/dags/factory.py","lineno":100,"name":"run_dbt"}],"is_group":false,"exceptions":[]}]}

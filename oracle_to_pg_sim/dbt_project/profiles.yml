@@ -1,0 +1,13 @@
+oracle_warehouse:
+  target: prod
+  outputs:
+    prod:
+      type: postgres
+      host:     "{{ env_var('WAREHOUSE_PG_HOST') }}"
+      port:     "{{ env_var('WAREHOUSE_PG_PORT') | int }}"
+      dbname:   "{{ env_var('WAREHOUSE_PG_DB') }}"
+      user:     "{{ env_var('WAREHOUSE_PG_USER') }}"
+      password: "{{ env_var('WAREHOUSE_PG_PASS') }}"
+      schema:   marts
+      threads:  4
+      connect_timeout: 30

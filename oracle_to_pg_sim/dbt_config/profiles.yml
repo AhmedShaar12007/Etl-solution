@@ -1,0 +1,12 @@
+dbt_transformation:
+  outputs:
+    dev:
+      dbname: warehouse
+      host: postgres_dw
+      pass: warehouse_passwarehouse_pass
+      port: 5432
+      schema: public
+      threads: 4
+      type: postgres
+      user: postgres
+  target: dev
